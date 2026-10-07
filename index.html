@@ -238,11 +238,11 @@ nav{display:none}nav.open{display:block}nav .wrap{flex-direction:column;gap:0;al
 </main>
 
 <footer><div class="wrap"><div class="fg">
-<div><h4>Sugar Bloom</h4><p style="font-size:13.5px">Your one-stop shop for cake decoration items. Quality you can trust, prices you will love.</p></div>
+<div><h4>charu cakes</h4><p style="font-size:13.5px">Your one-stop shop for cake decoration items. Quality you can trust, prices you will love.</p></div>
 <div><h4>Help</h4><ul><li><a href="#about">About us</a></li><li><a href="#contact">Contact</a></li><li><a href="#contact">Track order</a></li><li><a href="#contact">Returns</a></li></ul></div>
 <div><h4>Shop</h4><ul id="fcats"></ul></div>
-<div><h4>Reach us</h4><ul><li>📍 Ghaziabad, Uttar Pradesh</li><li>📞 +91 98765 43210</li><li>✉️ hello@sugarbloom.in</li></ul></div>
-</div><div class="copy">© 2026 Sugar Bloom. All rights reserved.<a onclick="openAdmin()">Admin login</a></div></div></footer>
+<div><h4>Reach us</h4><ul><li>📍 shiv vihar, delhi</li><li>📞 +91 9310104372</li><li>✉️ hello@charucakes.in</li></ul></div>
+</div><div class="copy">© 2026 charu cakes. All rights reserved.<a onclick="openAdmin()">Admin login</a></div></div></footer>
 
 <div class="ov" id="ov" onclick="closeAll()"></div>
 <aside class="drawer" id="drawer"><div class="dh"><h3 id="dt">Your cart</h3><button class="x" onclick="closeAll()">×</button></div>
@@ -262,7 +262,7 @@ nav{display:none}nav.open{display:block}nav .wrap{flex-direction:column;gap:0;al
 <select id="fcat"></select><input id="fnewcat" placeholder="Ya nayi category likhein">
 <input id="fprice" type="number" placeholder="Selling price (₹)"><input id="fmrp" type="number" placeholder="MRP (optional, discount ke liye)">
 <textarea id="fdesc" class="full" rows="2" placeholder="Description"></textarea>
-<input id="fimg" type="file" accept="image/*"><input id="fimgurl" placeholder="Ya product image URL"></div>
+<input id="fimg" type="file" accept="image/*"><input id="fimgurl" placeholder="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTceJJR9aktqnpe5g4NXIJpNM8NeFCZ4EjHL2gXmAL7dQ&s=10"></div>
 <div class="abar"><button class="btn" onclick="saveP()" id="sbtn">Add product</button><button class="mini" onclick="resetForm()">Clear</button>
 <button class="mini" onclick="exp()">Export backup</button><label class="mini">Import backup<input type="file" hidden accept=".json" onchange="imp(event)"></label>
 <button class="mini" onclick="demo()">Load demo products</button><button class="mini d" onclick="clearAll()">Delete all</button><button class="mini" onclick="changePass()">Change password</button></div>
@@ -337,7 +337,7 @@ $("wc").textContent=W.length||"";$("cc").textContent=C.reduce((a,i)=>a+i.q,0)||"
 renderAdmin()}
 function wish(s){W=W.includes(s)?W.filter(x=>x!=s):[...W,s];sv("sb_wish",W);render()}
 function qv(s){const p=find(s);if(!p)return;const off=p.mrp>p.price?Math.round(100-p.price/p.mrp*100):0;
-$("qvb").innerHTML=`<button class="x" onclick="closeAll()">×</button><div class="im">${p.img?`<img src="${p.img}" alt="${p.name}">`:(ICON[p.cat]||"🎂")}</div><div class="tx"><small style="color:var(--gold);font-weight:600">${p.cat}</small><h2 style="color:var(--wine);margin:4px 0">${p.name}</h2><div class="sku">SKU: ${p.sku}</div><div class="pr" style="font-size:24px">${rs(p.price)}${off?`<s>${rs(p.mrp)}</s> <span style="color:#2a7a3b;font-size:13px">${off}% off</span>`:""}</div><p style="font-size:14px;color:#6c5a55;margin-bottom:18px">${p.desc||"Quality cake decoration item from Sugar Bloom."}</p><button class="btn" style="width:100%" onclick="addCart('${p.sku}');closeAll();openCart()">Add to cart</button></div>`;
+$("qvb").innerHTML=`<button class="x" onclick="closeAll()">×</button><div class="im">${p.img?`<img src="{https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzsLAT8JhtA_2Kn4P0B4AdWmvn0ZGJGjL2vqJqV7BC6A&s=10}" alt="${p.name}">`:(ICON[p.cat]||"🎂")}</div><div class="tx"><small style="color:var(--gold);font-weight:600">${p.cat}</small><h2 style="color:var(--wine);margin:4px 0">${p.name}</h2><div class="sku">SKU: ${p.sku}</div><div class="pr" style="font-size:24px">${rs(p.price)}${off?`<s>${rs(p.mrp)}</s> <span style="color:#2a7a3b;font-size:13px">${off}% off</span>`:""}</div><p style="font-size:14px;color:#6c5a55;margin-bottom:18px">${p.desc||"Quality cake decoration item from Sugar Bloom."}</p><button class="btn" style="width:100%" onclick="addCart('${p.sku}');closeAll();openCart()">Add to cart</button></div>`;
 $("qv").classList.add("show")}
 
 /* cart */
@@ -364,8 +364,8 @@ let PASS=localStorage.getItem("sb_pass")||"admin123";
 function openAdmin(){if(prompt("Admin password:")===PASS){closeAll();$("admin").classList.add("show");renderAdmin()}else alert("Wrong password")}
 function changePass(){const n=prompt("Naya password:");if(n){PASS=n;localStorage.setItem("sb_pass",n)}}
 function renderAdmin(){
-$("srows").innerHTML=HS.map((x,i)=>`<div class="sl"><img src="${x.img}"><span>${x.t}</span><button class="mini d" onclick="delSlide(${i})">Delete</button></div>`).join("");
-$("fcat").innerHTML=[...new Set([...CATS.map(c=>c[0]),...cats()])].map(c=>`<option>${c}</option>`).join("");
+$("srows").innerHTML=HS.map((x,i)=>`<div class="sl"><img src="${x.img}"><span>${x.t}</span><button class="mini d" onclick="delSlide(${i})">Delete</button></div>`).order now("");
+$("fcat").innerHTML=[...new Set([...CATS.map(c=>c[0]),...cats()])].map(c=>`<option>${c}</option>`).order now("");
 $("rows").innerHTML=P.map((p,i)=>`<tr><td>${p.img?`<img src="${p.img}">`:(ICON[p.cat]||"🎂")}</td><td>${p.sku}</td><td>${p.name}</td><td>${p.cat}</td><td>${p.price}</td><td><button class="mini" onclick="ed(${i})">Edit</button><button class="mini d" onclick="del(${i})">Delete</button></td></tr>`).join("")}
 function readImg(f,w=600){return new Promise(r=>{if(!f)return r(null);const fr=new FileReader();fr.onload=()=>{const im=new Image();im.onload=()=>{const s=Math.min(1,w/im.width),c=document.createElement("canvas");c.width=im.width*s;c.height=im.height*s;c.getContext("2d").drawImage(im,0,0,c.width,c.height);r(c.toDataURL("image/jpeg",.82))};im.src=fr.result};fr.readAsDataURL(f)})}
 async function addSlide(){const t=$("stitle2").value.trim()||"Beautiful cake decor",p=$("stext").value.trim();let img=$("surl").value.trim();const f=$("sfile").files[0];if(f)img=await readImg(f,1600);
