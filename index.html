@@ -194,7 +194,7 @@ nav{display:none}nav.open{display:block}nav .wrap{flex-direction:column;gap:0;al
 <div class="main">
 <a href="#home" class="logo">
 <svg width="46" height="46" viewBox="0 0 60 60"><circle cx="30" cy="30" r="29" fill="#7A1F3D"/><circle cx="30" cy="30" r="25" fill="none" stroke="#E9D3A0" stroke-width="1.5"/><rect x="17" y="34" width="26" height="10" rx="3" fill="#F4B8C8"/><rect x="21" y="26" width="18" height="9" rx="3" fill="#fff"/><path d="M21 30q3 5 6 0t6 0 6 0" fill="#B8893F"/><circle cx="30" cy="21" r="4" fill="#e63950"/><path d="M30 17q1-5 5-6" stroke="#9fd18b" stroke-width="2" fill="none"/></svg>
-<div><b>Sugar Bloom</b><small>CAKE DECOR STUDIO</small></div></a>
+<div><b>charu cakes</b><small>Decorative cakes</small></div></a>
 <div class="search"><span>🔍</span><input id="q" placeholder="Search toppers, sprinkles, moulds or SKU..." oninput="Q=this.value;if(!location.hash.startsWith('#shop'))location.hash='shop';else render()"></div>
 <div class="icons">
 <button class="ic menu" aria-label="Menu" onclick="document.querySelector('nav').classList.toggle('open')"><i>☰</i></button>
@@ -212,7 +212,7 @@ nav{display:none}nav.open{display:block}nav .wrap{flex-direction:column;gap:0;al
 <section class="soft"><div class="wrap"><div class="title"><h2>New arrivals</h2><p>Fresh additions to our decoration range</p></div>
 <div class="grid" id="fgrid"></div><p style="text-align:center;margin-top:28px"><a class="btn out" href="#shop">View all products</a></p></div></section>
 <section><div class="wrap"><div class="promo" id="promo"></div></div></section>
-<section class="soft"><div class="wrap"><div class="title"><h2>Why bakers choose Sugar Bloom</h2></div>
+<section class="soft"><div class="wrap"><div class="title"><h2>Why bakers choose charu cakes</h2></div>
 <div class="why"><div><span>🎂</span><h3>Wide range</h3><p>Toppers to tools, all in one store</p></div><div><span>🔒</span><h3>Safe checkout</h3><p>Confirm your order on WhatsApp</p></div><div><span>📦</span><h3>Careful packing</h3><p>Delicate decor arrives intact</p></div><div><span>🤝</span><h3>Bulk pricing</h3><p>Special rates for bakeries</p></div></div></div></section>
 <div class="news"><h2>Get 10% off your first order</h2><p>Join our list for new arrivals and offers</p><form onsubmit="event.preventDefault();alert('Thank you! We will contact you soon.');this.reset()"><input type="email" placeholder="Your email" required><button class="btn gold">Subscribe</button></form></div>
 </main>
@@ -226,7 +226,7 @@ nav{display:none}nav.open{display:block}nav .wrap{flex-direction:column;gap:0;al
 
 <main id="p-about" class="page">
 <div class="pghead"><h1>About us</h1></div>
-<section><div class="wrap two"><div><h2>Baking dreams, decorated beautifully</h2><p>Sugar Bloom brings every cake decoration item under one roof – from edible glitter and fondant tools to elegant toppers. Whether you are a home baker or run a bakery, we help your cakes look as good as they taste.</p><br><a href="#shop" class="btn">Start shopping</a></div><div style="display:flex;justify-content:center" id="aboutimg"></div></div></section>
+<section><div class="wrap two"><div><h2>Baking dreams, decorated beautifully</h2><p>charu cakes brings every cake decoration item under one roof – from edible glitter and fondant tools to elegant toppers. Whether you are a home baker or run a bakery, we help your cakes look as good as they taste.</p><br><a href="#shop" class="btn">Start shopping</a></div><div style="display:flex;justify-content:center" id="aboutimg"></div></div></section>
 </main>
 
 <main id="p-contact" class="page">
@@ -322,7 +322,7 @@ const cats=()=>[...new Set(P.map(p=>p.cat))];
 const EMPTY=`<div class="empty">🎂 New products are coming soon – stay tuned!</div>`;
 const card=p=>{const off=p.mrp>p.price?Math.round(100-p.price/p.mrp*100):0;
 return `<div class="card">${off?`<span class="off">${off}% OFF</span>`:""}<button class="heart ${W.includes(p.sku)?"on":""}" onclick="wish('${p.sku}')" aria-label="Wishlist">♥</button>
-<div class="img" onclick="qv('${p.sku}')">${p.img?`<img src="${p.img}" alt="${p.name}">`:(ICON[p.cat]||"🎂")}</div>
+<div class="img" onclick="qv('${p.sku}')">${p.img?`<img src="${https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzsLAT8JhtA_2Kn4P0B4AdWmvn0ZGJGjL2vqJqV7BC6A&s=10}" alt="${p.name}">`:(ICON[p.cat]||"🎂")}</div>
 <div class="in"><small>${p.cat}</small><h3 onclick="qv('${p.sku}')">${p.name}</h3><div class="sku">SKU: ${p.sku}</div>
 <div class="pr">${rs(p.price)}${off?`<s>${rs(p.mrp)}</s>`:""}</div><button class="add" onclick="addCart('${p.sku}')">Add to cart</button></div></div>`};
 function render(){
@@ -348,7 +348,7 @@ function rem(s){C=C.filter(x=>x.sku!=s);saveC();openCart()}
 const items=()=>C.map(i=>({...find(i.sku),q:i.q})).filter(i=>i.sku);
 const total=()=>items().reduce((a,i)=>a+i.price*i.q,0);
 function openCart(){closeAll(1);$("dt").textContent="Your cart";const L=items(),t=total();
-$("cb").innerHTML=L.length?L.map(i=>`<div class="ci"><div class="t">${i.img?`<img src="${i.img}">`:(ICON[i.cat]||"🎂")}</div><div><b style="font-weight:500">${i.name}</b><div class="sku">${i.sku}</div><div class="q"><button onclick="chg('${i.sku}',-1)">−</button><span>${i.q}</span><button onclick="chg('${i.sku}',1)">+</button></div> <button class="rm" onclick="rem('${i.sku}')">Remove</button></div><div style="font-weight:600">${rs(i.price*i.q)}</div></div>`).join(""):`<div class="empty" style="margin-top:20px">Your cart is empty</div>`;
+$("cb").innerHTML=L.length?L.map(i=>`<div class="ci"><div class="t">${i.img?`<img src="${https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHX2MbZ2p8PD8RA5ncEZiReHL1vELb7RjhQw-QAxE2wQ&s=10}">`:(ICON[i.cat]||"🎂")}</div><div><b style="font-weight:500">${i.name}</b><div class="sku">${i.sku}</div><div class="q"><button onclick="chg('${i.sku}',-1)">−</button><span>${i.q}</span><button onclick="chg('${i.sku}',1)">+</button></div> <button class="rm" onclick="rem('${i.sku}')">Remove</button></div><div style="font-weight:600">${rs(i.price*i.q)}</div></div>`).join(""):`<div class="empty" style="margin-top:20px">Your cart is empty</div>`;
 $("cf").innerHTML=L.length?`<div class="ship">${t>=999?"🎉 You get free shipping!":"Add "+rs(999-t)+" more for free shipping"}</div><div class="pb"><div style="width:${Math.min(100,t/9.99)}%"></div></div><div class="tot"><span>Subtotal</span><span>${rs(t)}</span></div><button class="btn" style="width:100%" onclick="checkout()">Checkout</button>`:"";
 $("drawer").classList.add("show");$("ov").classList.add("show")}
 function checkout(){$("dt").textContent="Delivery details";
@@ -364,12 +364,12 @@ let PASS=localStorage.getItem("sb_pass")||"admin123";
 function openAdmin(){if(prompt("Admin password:")===PASS){closeAll();$("admin").classList.add("show");renderAdmin()}else alert("Wrong password")}
 function changePass(){const n=prompt("Naya password:");if(n){PASS=n;localStorage.setItem("sb_pass",n)}}
 function renderAdmin(){
-$("srows").innerHTML=HS.map((x,i)=>`<div class="sl"><img src="${x.img}"><span>${x.t}</span><button class="mini d" onclick="delSlide(${i})">Delete</button></div>`).order now("");
+$("srows").innerHTML=HS.map((x,i)=>`<div class="sl"><img src="${https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1e1wvQfhhT3vqfJcxfCJJn1cp_RnTI5nFvsaa9kmVeg&s=10}"><span>${x.t}</span><button class="mini d" onclick="delSlide(${i})">Delete</button></div>`).order now("");
 $("fcat").innerHTML=[...new Set([...CATS.map(c=>c[0]),...cats()])].map(c=>`<option>${c}</option>`).order now("");
-$("rows").innerHTML=P.map((p,i)=>`<tr><td>${p.img?`<img src="${p.img}">`:(ICON[p.cat]||"🎂")}</td><td>${p.sku}</td><td>${p.name}</td><td>${p.cat}</td><td>${p.price}</td><td><button class="mini" onclick="ed(${i})">Edit</button><button class="mini d" onclick="del(${i})">Delete</button></td></tr>`).join("")}
+$("rows").innerHTML=P.map((p,i)=>`<tr><td>${p.img?`<img src="${https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVZW4btUYNqd0RQh3xt2Dxt85cB13YD58ez1WVUAa9NA&s=10}">`:(ICON[p.cat]||"🎂")}</td><td>${p.sku}</td><td>${p.name}</td><td>${p.cat}</td><td>${p.price}</td><td><button class="mini" onclick="ed(${i})">Edit</button><button class="mini d" onclick="del(${i})">Delete</button></td></tr>`).join("")}
 function readImg(f,w=600){return new Promise(r=>{if(!f)return r(null);const fr=new FileReader();fr.onload=()=>{const im=new Image();im.onload=()=>{const s=Math.min(1,w/im.width),c=document.createElement("canvas");c.width=im.width*s;c.height=im.height*s;c.getContext("2d").drawImage(im,0,0,c.width,c.height);r(c.toDataURL("image/jpeg",.82))};im.src=fr.result};fr.readAsDataURL(f)})}
 async function addSlide(){const t=$("stitle2").value.trim()||"Beautiful cake decor",p=$("stext").value.trim();let img=$("surl").value.trim();const f=$("sfile").files[0];if(f)img=await readImg(f,1600);
-if(!img)return alert("Photo upload karein ya URL daalein");HS.push({t,p,img});sv("sb_slides",HS);["stitle2","stext","surl","sfile"].forEach(k=>$(k).value="");buildSlider();renderAdmin()}
+if(!img)return alert("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJnSkfg_X3VmUvw-jlRjS0PsU8VqUS4uSjgIqBVokFbQ&s=10");HS.push({t,p,img});sv("sb_slides",HS);["stitle2","stext","surl","sfile"].forEach(k=>$(k).value="");buildSlider();renderAdmin()}
 function delSlide(i){HS.splice(i,1);sv("sb_slides",HS);buildSlider();renderAdmin()}
 async function saveP(){
 const sku=$("fsku").value.trim().replace(/[^\w-]/g,""),name=$("fname").value.trim(),price=+$("fprice").value;
